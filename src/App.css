@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+body {
+  font-family: 'Poppins', sans-serif;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+main {
+  flex: 1 0 auto;
+}
+
+/* .inputs {
+  border-bottom-color: black !important;
+  border-bottom-width: 3px !important;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-top: 25px;
+  border-bottom: 2px solid black !important;
+}
+ */
+
+/* Custom input styles */
+.custom-input {
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 2px solid rgb(184, 180, 180) !important;
+  padding-left: 0 !important;
+  background-color: transparent !important;
+}
+
+.custom-input:hover {
+  border-bottom-color: black !important;
+}
+
+.custom-input:focus {
+  box-shadow: none !important;
+  border-bottom-color: black !important;
+}
+
+/* For password input */
+.custom-input.ant-input-password {
+  padding-left: 0 !important;
+}
+
+.custom-input.ant-input-affix-wrapper {
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 2px solid rgb(184, 180, 180)  !important;
+  background-color: transparent !important;
+}
+
+/* Remove the eye icon padding */
+.ant-input-password .ant-input-suffix {
+  padding-left: 0 !important;
+}
+
+
+/* Product Card */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  max-width: 300px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.add-to-cart-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Cart Modal */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.cart-modal {
+  background: white;
+  width: 400px;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-total {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.checkout-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.cart-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+
+/* <div className="bg-zinc-800 flex text-white overflow-y-auto "></div> */

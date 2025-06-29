@@ -1,0 +1,21 @@
+/* In your CSS or inside a styled-component or global styles */
+.custom-radio .ant-radio-inner {
+  border-color: black;      /* Circle border */
+}
+
+.custom-radio .ant-radio-checked .ant-radio-inner {
+  background-color: black;  /* Filled circle when selected */
+  border-color: black;
+}
+.custom-checkbox .ant-checkbox-inner {
+  background-color: red;
+  border-color: red;
+}
+
+.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: red;
+  border-color: red;
+}
+.custom-checkbox .ant-checkbox-inner::after {
+  border-color: white;
+}
