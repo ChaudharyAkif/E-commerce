@@ -1,4 +1,4 @@
-import supabase from "../../config/supabase"
+import supabase from "../../../../config/supabase";
 
 export const authService = {
   async sendMagicLink(email) {
@@ -7,10 +7,10 @@ export const authService = {
       options: {
         emailRedirectTo: `${import.meta.env.VITE_SITE_URL}/auth/confirm`,
       }
-    })
+    });
 
-    if (error) throw error
-    return data
+    if (error) throw error;
+    return data;
   },
 
   async verifyOtp(email, token) {
@@ -18,9 +18,27 @@ export const authService = {
       email,
       token,
       type: 'email'
-    })
+    });
 
-    if (error) throw error
-    return data
+    if (error) throw error;
+    return data;
+  },
+
+  async resetPasswordForEmail(email) {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${import.meta.env.VITE_SITE_URL}/auth/reset-password`,
+    });
+
+    if (error) throw error;
+    return data;
+  },
+
+  async updatePassword(newPassword) {
+    const { data, error } = await supabase.auth.updateUser({
+      password: newPassword
+    });
+
+    if (error) throw error;
+    return data;
   }
-}
+};

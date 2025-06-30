@@ -40,9 +40,11 @@ const Navbar = () => {
       <Menu.Item key="account" icon={<SettingOutlined style={{ fontSize: 18, color: '#555' }} />}>
         <Link to="/dashboard/ManageAccount">Manage Account</Link>
       </Menu.Item>
+      <Link to={"/AdminDashboard"}>
       <Menu.Item key="reviews" icon={<FormOutlined style={{ fontSize: 18, color: '#555' }} />}>
-        My Reviews
+        Admin Dashboard
       </Menu.Item>
+      </Link>
       <Menu.Item key="orders" icon={<ShoppingCartOutlined style={{ fontSize: 18, color: '#555' }} />}>
         My Orders
       </Menu.Item>

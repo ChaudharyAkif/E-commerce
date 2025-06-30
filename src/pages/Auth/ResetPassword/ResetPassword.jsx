@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Button, message, Typography } from 'antd';
-import supabase from '../../../config/supabase';
+import { authService } from './authService';
 
 const { Title, Paragraph } = Typography;
 
@@ -13,12 +13,9 @@ export default function ResetPassword() {
   const onFinish = async ({ password }) => {
     setLoading(true);
     try {
-      const { data, error } = await supabase.auth.updateUser({
-        password,
-      });
-      if (error) throw error;
+      await authService.updatePassword(password);
       message.success('Password has been reset successfully.');
-      navigate('/auth/login'); // Redirect to login page
+      navigate('/auth/login');
     } catch (error) {
       message.error(error.message || 'Failed to reset password.');
     } finally {
@@ -27,13 +24,13 @@ export default function ResetPassword() {
   };
 
   useEffect(() => {
-    // Optional: Validate if the session is available
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) {
         message.error('Session expired or invalid link.');
+        navigate('/auth/login');
       }
     });
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-6">
