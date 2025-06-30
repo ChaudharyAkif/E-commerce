@@ -15,7 +15,7 @@ export default function ForgotPassword() {
       await authService.resetPasswordForEmail(email);
       message.success('Password reset link sent! Check your email.');
       form.resetFields();
-      navigate('/login');
+      navigate('/auth/login');
     } catch (error) {
       message.error(error.message || 'Failed to send reset email.');
     } finally {
