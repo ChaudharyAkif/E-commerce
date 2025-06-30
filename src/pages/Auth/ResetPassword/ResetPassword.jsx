@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Button, message, Typography } from 'antd';
-import { authService } from './authService';
-
+import  {authService}  from '../authService';
 const { Title, Paragraph } = Typography;
 
 export default function ResetPassword() {
