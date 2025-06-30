@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { token_hash, type, email } = req.query;
 
   if (!token_hash || !type || !email) {
-    return res.redirect('/auth/error?message=Missing parameters');
+    return res.redirect('/auth/error?message=Invalid verification link');
   }
 
   try {
@@ -16,9 +16,10 @@ export default async function handler(req, res) {
 
     if (error) throw error;
 
-    return res.redirect('/auth/confirm');
+    // Redirect to confirmation page with success message
+    return res.redirect(`${window.location.origin}/auth/confirm?verified=true`);
   } catch (error) {
     console.error('Verification error:', error.message);
-    return res.redirect(`/auth/error?message=${encodeURIComponent(error.message)}`);
+    return res.redirect(`${window.location.origin}/auth/error?message=${encodeURIComponent(error.message)}`);
   }
 }

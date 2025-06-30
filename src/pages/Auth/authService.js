@@ -5,7 +5,7 @@ export const authService = {
     const { data, error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${import.meta.env.VITE_SITE_URL}/auth/confirm`,
+        emailRedirectTo: `${window.location.origin}/auth/confirm`,
       }
     });
 
@@ -26,7 +26,7 @@ export const authService = {
 
   async resetPasswordForEmail(email) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${import.meta.env.VITE_SITE_URL}/auth/reset-password`,
+      redirectTo: `${window.location.origin}/auth/reset-password`,
     });
 
     if (error) throw error;
